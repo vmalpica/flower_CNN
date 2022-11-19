@@ -31,8 +31,8 @@ root = os.path.dirname(__file__)
 model_dir = os.path.join(root,'models')
 data_dir = os.path.join(root,'dataset')
 
-
-device = torch.device('cuda' if torch.cuda.is_available else 'cpu')
+device = "mps" if torch.has_mps else "cpu"
+#device = torch.device('mps' if torch.mps.is_available else 'cpu')
 
 def load_index(data_dir, test_split=0.2):
     dataset = {}
